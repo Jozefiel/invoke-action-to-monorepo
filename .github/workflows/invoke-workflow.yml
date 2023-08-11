@@ -18,7 +18,7 @@ jobs:
           IMAGE: ${{ inputs.image }}
         run: |
           curl -L -X POST https://api.github.com/repos/Jozefiel/monorepo-api/actions/workflows/release-discovery.yml/dispatches \
-          -u "Jozefiel:${{ secrets.GITHUB_TOKEN }}"
+          -u ${{ secrets.GH_TOKEN }}
           -H 'Accept: application/vnd.github+json' \
           -H "X-GitHub-Api-Version: 2022-11-28" \
           --data '{"ref":"master","inputs":{"image":"IMAGE"}}'
